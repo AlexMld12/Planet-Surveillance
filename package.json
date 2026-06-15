@@ -1,0 +1,31 @@
+{
+  "name": "planet-surveillance",
+  "version": "0.1.0",
+  "description": "Aplicatie web 3D: glob Pamant interactiv cu camere live pe orase (CesiumJS + Windy Webcams API)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit"
+  },
+  "keywords": [
+    "cesium",
+    "3d-globe",
+    "webcams",
+    "windy",
+    "licenta"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@vercel/node": "^5.8.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14",
+    "vite-plugin-cesium": "^1.2.23"
+  },
+  "dependencies": {
+    "cesium": "^1.141.0"
+  }
+}
