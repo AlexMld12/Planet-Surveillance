@@ -6,6 +6,8 @@ Aplicația rulează integral în browser (nu necesită instalare de către utili
 
 Aplicația live: https://planet-surveillance.vercel.app/
 
+Cod sursă (GitHub): https://github.com/AlexMld12/Planet-Surveillance
+
 Aplicația permite:
 
 - navigarea liberă pe un glob 3D (rotire, zoom, înclinare)
