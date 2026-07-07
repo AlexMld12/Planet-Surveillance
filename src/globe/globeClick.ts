@@ -66,11 +66,9 @@ export function initGlobeClick(viewer: Viewer): void {
 
     const county = await countyPromise;
 
-    const filtered = data.webcams.filter((webcam) => {
-      if (!matchesCountry(webcam, country)) return false;
-      if (county && !matchesCounty(webcam, county)) return false;
-      return true;
-    });
+    const inCountry = data.webcams.filter((webcam) => matchesCountry(webcam, country));
+    const inCounty = county ? inCountry.filter((webcam) => matchesCounty(webcam, county)) : [];
+    const filtered = inCounty.length > 0 ? inCounty : inCountry;
 
     filtered.sort((a, b) => {
       const da = haversineKm(lat, lng, a.location.latitude, a.location.longitude);

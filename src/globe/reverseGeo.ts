@@ -30,12 +30,19 @@ export async function findCountry(lat: number, lng: number): Promise<CountryHit 
     if (!feature.geometry) continue;
     if (containsPoint(feature.geometry.type, feature.geometry.coordinates, lng, lat)) {
       const name = feature.properties.NAME;
-      const iso = feature.properties.ISO_A2;
       if (typeof name === "string") {
-        return { name, iso2: typeof iso === "string" ? iso : null };
+        return { name, iso2: resolveIso2(feature.properties) };
       }
     }
   }
+  return null;
+}
+
+function resolveIso2(properties: Record<string, unknown>): string | null {
+  const primary = properties.ISO_A2;
+  if (typeof primary === "string" && primary !== "-99") return primary;
+  const fallback = properties.ISO_A2_EH;
+  if (typeof fallback === "string" && fallback !== "-99") return fallback;
   return null;
 }
 
